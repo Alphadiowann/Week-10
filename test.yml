@@ -1,0 +1,16 @@
+name: Test
+
+on: 
+  Pull_request:
+    types: [opened]
+
+jobs:
+  test:
+    run-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          GITHUB-TOKEN: s{{secrets.GITHUB_TOKEN}}
+          TENOR-TOKEN: s{{secrets.TENOR_TOKEN}}
+
